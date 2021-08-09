@@ -11,7 +11,7 @@ export PATH="$HOME/.jenv/bin:$PATH"
 # eval "$(rbenv init -)"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/lg070675/.oh-my-zsh"
+export ZSH="/Users/<user_profile>/.oh-my-zsh"
 
 # function to set terminal title
 function title() {
@@ -26,14 +26,19 @@ jdk() {
   java -version
 }
 
+# prepending a space before a command will not save it to history
+HISTCONTROL=ignorespace
+
 # aliases
 alias ll='ls -l -G'
-# alias java8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_202`; java -version"
+alias java8="export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_202`; java -version"
 alias java12="export JAVA_HOME=`/usr/libexec/java_home -v 12`; java -version"
-# FindUser script
-alias fu="/usr/local/bin/find_user"
+
 # My IP address
 alias myip="curl http://ipecho.net/plain; echo"
+
+# Checkout Third.properties files from git
+alias third='git checkout *THIRD*'
 
 # export JAVA_HOME=$(/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/)
 
