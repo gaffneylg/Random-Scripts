@@ -8,6 +8,10 @@ read -p "Press [Enter] key after this..."
 echo "Installing xcode-stuff"
 xcode-select --install
 
+# Install curl
+echo "Installing curl"
+sudo apt-get install curl
+
 # Check for Homebrew,
 # Install if we don't have it
 if test ! $(which brew); then
@@ -27,7 +31,6 @@ echo "Git config"
 git config --global user.name "Liam Gaffney"
 git config --global user.email gaffneylg@gmail.com
 
-
 echo "Installing brew git utilities..."
 brew install git-extras
 brew install legit
@@ -40,7 +43,6 @@ brew install trash
 brew install svn
 brew install mackup
 brew install node
-
 
 echo "Cleaning up brew"
 brew cleanup
@@ -70,6 +72,7 @@ apps=(
   steam
   spotify
   iterm2
+  easyfind
   sublime-text2
   virtualbox
   mailbox
@@ -89,6 +92,36 @@ brew cleanup
 echo "Please setup and sync Dropbox, and then run this script again."
 read -p "Press [Enter] key after this..."
 
+# Install Ruby Version Manager (but don’t install ruby yet)
+echo "Installing RVM & Ruby"
+curl -L https://get.rvm.io | bash -s stable
+source ~/.rvm/scripts/rvm
+
+# Ruby GCC 
+# An additional requirement that is not documented by RVM is gcc - Xcode comes with llvm-gcc instead of the traditional gcc that Ruby is written for. Install gcc and configure RVM to use it instead of llvm-gcc.
+brew tap homebrew/dupes
+brew install apple-gcc42
+echo "export CC=`brew --prefix apple-gcc42`/bin/gcc-4.2" >> ~/.rvmrc
+echo "export CXX=`brew --prefix apple-gcc42`/bin/g++-4.2" >> ~/.rvmrc
+
+# Get ruby requirements and install 2.7.1 (check for latest)
+rvm requirements
+rvm install 2.7.1
+rvm use 2.7.1 --default
+
+# Install OpenJDK 8
+# Once complete, should be located at /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk
+echo "Installing java 8"
+brew install homebrew/cask-versions/adoptopenjdk8 
+
+# Install NodePackageManager
+echo "Installing NodePackageManager"
+brew install nvm
+mkdir ~/.nvm
+echo ‘export NVM_DIR=~/.nvm’ >> ~/.zshrc
+nvm install lts/dubnium
+
+
 echo "Setting some Mac settings..."
 
 #"Disabling system-wide resume"
@@ -96,6 +129,9 @@ defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
 
 #"Disabling automatic termination of inactive apps"
 defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
+
+# Show all files in a folder (including hidden)
+defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder
 
 #"Allow text selection in Quick Look"
 defaults write com.apple.finder QLEnableTextSelection -bool TRUE
