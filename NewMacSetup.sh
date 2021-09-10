@@ -66,6 +66,7 @@ chsh -s /bin/zsh
 
 # Apps
 apps=(
+  alfred
   dropbox
   firefox
   google-chrome
@@ -77,6 +78,7 @@ apps=(
   virtualbox
   mailbox
   vlc
+  pass
   zoomus
   chromecast
 )
@@ -126,6 +128,9 @@ echo "Setting some Mac settings..."
 
 #"Disabling system-wide resume"
 defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
+
+# Show Library folder
+chflags nohidden ~/Library
 
 #"Disabling automatic termination of inactive apps"
 defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
