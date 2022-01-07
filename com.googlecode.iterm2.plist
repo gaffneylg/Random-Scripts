@@ -711,7 +711,7 @@
 			<key>Window Type</key>
 			<integer>0</integer>
 			<key>Working Directory</key>
-			<string>/Users/lg070675</string>
+			<string>/Users/liam</string>
 		</dict>
 	</array>
 	<key>NoSyncAllAppVersions</key>
@@ -1530,8 +1530,10 @@
 			<string>kNextWindowPointerAction</string>
 		</dict>
 	</dict>
+<!--
 	<key>PrefsCustomFolder</key>
-	<string>/Users/lg070675/Documents</string>
+	<string>/Users/liam/Documents</string>
+-->
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
