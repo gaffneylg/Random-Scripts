@@ -12,7 +12,7 @@ Mac (iTerm, VS Code etc):
 VS Code on Windows:
 ```
     "workbench.colorCustomizations": {
-        "terminal.background": "#0e423e",
+        "terminal.background": "#0d3b38",
         "terminal.foreground": "#45b354"
     },
 ```
