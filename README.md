@@ -16,3 +16,24 @@ VS Code on Windows:
         "terminal.foreground": "#45b354"
     },
 ```
+
+Git terminal colours to be used in line with the above:
+```
+[color]
+	interactive = auto
+	ui = true
+	pager = true
+
+[color "status"]
+	added = yellow
+	changed = red bold
+	untracked = magenta bold
+
+[color "branch"]
+	current = yellow
+
+[color "diff"]
+	meta = white
+	new = yellow
+	old = red bold
+```
