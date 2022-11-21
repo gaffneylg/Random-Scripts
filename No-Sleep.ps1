@@ -1,12 +1,23 @@
 #
 # -- NoSleep --
-# Keep your computer awake by programmatically pressing the ScrollLock key every X seconds
+# Keep your computer awake by programmatically pressing the ScrollLock key every X seconds.
+# This helps avoid the computer going to sleep and dropping connections.
 #
 
 param($sleep = 540) # seconds
 $announcementInterval = 10 # loops
 
 Clear-Host
+
+$psHost = Get-Host
+
+$psWindow = $psHost.UI.RawUI
+
+$newSize. $psWindow.WindowSize
+$newSize.Height = 30
+$newSize.Width = 60
+
+$psWindow.WindowSize = $newSize
 
 $WShell = New-Object -com "Wscript.Shell"
 $date = Get-Date -Format "dddd MM/dd HH:mm (K)"
