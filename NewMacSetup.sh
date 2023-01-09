@@ -29,7 +29,7 @@ brew install git
 echo "Git config"
 
 git config --global user.name "Liam Gaffney"
-git config --global user.email gaffneylg@gmail.com
+git config --global user.email insertemailhere@gmail.com
 
 echo "Installing brew git utilities..."
 brew install git-extras
